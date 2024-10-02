@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platos</title>
+</head>
+<body>
+    <h1>Restaurante criollo</h1>
+    <hr>
+    <input type="button" onclick="ver(1);" value="retroceder">
+    <input type="button" onclick="ver(2)" value="avanzar">
+    <div>
+        <img src="img/arroz.png" alt="" id="img">
+    </div>
+    <script>
+        let comidas = ["causa.png","arroz.png", "ceviche.png"];
+        let con=0;
+        function ver(x){
+            if (x==2){
+                con=con+1;
+            }else{
+                con=con-1;
+            }
+            let com = comidas[con];
+            let imagen = com;
+            document.getElementById('img').src = "img/"+imagen;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante</title>
+    <style>
+        table{
+            margin: auto;
+            font-size: 30px;
+            border: 2px black solid;
+            height: 300px;
+        }
+        .boton{
+            width: 100px;
+
+        }
+        h1{
+            text-align: center;
+            font-size:50px;
+        }
+        #txtNom,#txtPrecio{
+            font-size: larger;
+            margin-bottom: 15px;
+            background-color:blanchedalmond ;
+            text-align: center;
+        }
+
+            
+    </style>
+</head>
+<body>
+    <table>
+      <div style="text-align: center; " >
+        <img src="img/banner.png" width="50%" alt="">
+      </div>  
+      <h1>PLATOS</h1>
+      <tr>
+        <td>
+            <img class="boton" src="img/retroceder.png" alt=" "  onclick="ver(1);">
+
+        </td>
+        <td >
+            <input type="text" name="" id="txtNom" disabled value="arroz">
+            <br>
+            <img src="img/arroz.png" height="400px" width="500px" alt="" id="img">
+            <br>
+            <p>precio: </p>
+            <input type="text" name="" id="txtPrecio" value="30.00" disabled>
+        </td>
+        <td>
+            <img class="boton" src="img/avanzar.png" alt=""  onclick="ver(2);">
+        </td>
+      </tr>
+    </table>
+    <script>
+        //Arreglos
+        let comidas = ["causa.png","arroz.png", "ceviche.png"];
+        let can = comidas.length;
+        let precios = [20.00,30.00, 35.50];
+        //creamos una variable global  sera reconocida en cualquier funcion 
+        let con=0;
+        //ver tiene un parametro llamado x 
+        //ver(1) el 1 es llamado argumento
+        function ver(x){
+            if (x==2){
+                if (con  < can-1 ){ //puede ir sin llave si es que hay una sola instruccion
+                    con=con+1;
+                }else{
+                    alert('has llegado al final')
+                } 
+                    
+            }else{
+                if(con >0){
+                    con=con-1; 
+                }else{
+                    alert('has llegado al incio')
+                }
+
+            }    
+            let com = comidas[con];
+            let imagen = com;
+            let cantidad =comidas[con].length
+            let pos =comidas[con].indexOf(".")
+            let nombre=comidas[con].substring(0,pos)
+            document.getElementById('img').src = "img/"+imagen;
+
+
+            document.getElementById('txtPrecio').value=precios[con];
+            document.getElementById('txtNom').value=nombre
+        } 
+       
+
+
+
+ 
+    </script>    
+</body>
+</html>
